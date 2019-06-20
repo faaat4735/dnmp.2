@@ -1,2 +1,2 @@
 /conf/nginx/prv.conf/*
-/log/*
+*.log

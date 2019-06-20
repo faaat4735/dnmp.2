@@ -1,3 +1,4 @@
+#share file windows use //dnmp
 version: "3"
 services:
   nginx:
@@ -6,20 +7,20 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./log/nginx:/var/log/nginx/:rw
+      - //dnmp/log/nginx:/var/log/nginx
       #windows
       - //dnmp/conf/nginx:/etc/nginx
       # - ./conf/nginx:/etc/nginx
       #workdir
       - //sites/:/sites
-    restart: always
+    # restart: always
   php:
     build: ./build/php
     ports:
       - "9000:9000"
     volumes:
-      - ./conf/php.ini:/usr/local/etc/php/php.ini
-      - ./log/php:/var/log/php
+      - //dnmp/conf/php.ini:/usr/local/etc/php/php.ini
+      - //dnmp/log/php:/var/log/php
       #workdir
       - //sites/:/sites
-    restart: always
+    # restart: always

@@ -13,6 +13,7 @@ services:
       # - ./conf/nginx:/etc/nginx
       #workdir
       - //sites/:/sites
+      - //e_d/:/webdir
     # restart: always
   php:
     build: ./build/php
@@ -23,4 +24,5 @@ services:
       - //dnmp/log/php:/var/log/php
       #workdir
       - //sites/:/sites
+      - //e_d/:/webdir
     # restart: always

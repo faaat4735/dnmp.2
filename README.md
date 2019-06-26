@@ -7,3 +7,6 @@ docker-compose up -d
 
 - [ ] nginx echo extend
 - [ ] permission problem
+- [ ] install sendmail
+- [ ] install locale
+- [ ] mysql redis mysqladmin redisadmin up

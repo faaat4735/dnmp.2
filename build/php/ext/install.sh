@@ -6,7 +6,7 @@ fi
 
 if [ -z "${EXTENSIONS##*,intl,*}" ]; then
     echo "---------- Install intl ----------"
-    apt-get update && apt-get install -y libicu-dev\
+    apt-get install -y libicu-dev\
     && docker-php-ext-install intl
 fi
 

@@ -1,4 +1,4 @@
-# dnmp.2
+# dnmp
 research docker+nginx+php
 
 docker-compose up -d

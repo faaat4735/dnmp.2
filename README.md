@@ -5,8 +5,9 @@ docker-compose up -d
 
 ## TODO list
 
-- nginx echo extend
-- permission problem
-- install sendmail
-- install locale
-- mysql redis mysqladmin redisadmin up
+
+- [ ]  nginx echo extend
+- [ ]  permission problem
+- [ ]  install sendmail
+- [x]  install locale
+- [ ]  mysql redis mysqladmin redisadmin up

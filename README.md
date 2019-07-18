@@ -1,7 +1,7 @@
 # dnmp
 research docker+nginx+php
 
-docker-compose up -d
+`docker-compose up -d` `docker-compose start nginx` `docker-compose start php` `docker-compose restart nginx` `docker-compose restart php`
 ## TODO list
 
 - [ ]  nginx echo extend
@@ -19,3 +19,7 @@ docker-compose up -d
 - The volumes was not valid
 
   solution:virtualBox->setting->shared folders->add
+  
+  
+## Reference
+1. [Docker — 从入门到实践](https://yeasy.gitbooks.io/docker_practice/)

@@ -7,7 +7,7 @@ research docker+nginx+php
 - [ ]  nginx echo extend
 - [ ]  permission problem
 - [ ]  install sendmail
-- [x]  install locale
+- [x]  install locale(need optimize)
 - [ ]  mysql redis mysqladmin redisadmin up
 
 
@@ -19,6 +19,7 @@ research docker+nginx+php
 - The volumes was not valid
 
   solution:virtualBox->setting->shared folders->add
+  mount -t vboxsf a /a
   
   
 ## Reference

@@ -32,3 +32,8 @@ if [ -z "${EXTENSIONS##*,gettext,*}" ]; then
     echo "---------- Install gettext ----------"
     docker-php-ext-install gettext
 fi
+
+if [ -z "${EXTENSIONS##*,soap,*}" ]; then
+    echo "---------- Install soap ----------"
+    docker-php-ext-install soap
+fi

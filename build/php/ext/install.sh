@@ -13,11 +13,6 @@ fi
 if [ -z "${EXTENSIONS##*,xdebug,*}" ]; then
     echo "---------- Install xdebug ----------"
     pecl install xdebug
-    # mkdir xdebug \
-    # && tar -xf xdebug-2.6.1.tgz -C xdebug --strip-components=1 \
-    # && ( cd xdebug && phpize && ./configure && make) \
-    # && cp ./modules/xdebug.so /usr/local/lib/php/extensions/no-debug-non-zts-20170718/xdebug.so
-    #&& docker-php-ext-enable xdebug
 fi
 
 if [ -z "${EXTENSIONS##*,redis,*}" ]; then
@@ -36,4 +31,21 @@ fi
 if [ -z "${EXTENSIONS##*,soap,*}" ]; then
     echo "---------- Install soap ----------"
     docker-php-ext-install soap
+fi
+
+if [ -z "${EXTENSIONS##*,gd,*}" ]; then
+    echo "---------- Install GD ----------"
+    apt-get install -y libjpeg-dev libpng-dev &&
+    docker-php-ext-configure gd --with-png-dir=/sites/gd_dir --with-jpeg-dir=/sites/gd_dir &&
+    docker-php-ext-install gd
+fi
+
+if [ -z "${EXTENSIONS##*,imagick,*}" ]; then
+    echo "---------- Install imagick ----------"
+    apt-get install -y libmagickwand-dev
+    printf "\n" | pecl install imagick-3.4.4
+    # mkdir imagick \
+    # && tar -xf imagick-3.4.4.tgz -C imagick --strip-components=1 \
+    # && ( cd imagick && phpize && ./configure && make && make install ) \
+    docker-php-ext-enable imagick
 fi

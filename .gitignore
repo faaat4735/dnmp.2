@@ -1,2 +1,4 @@
 /conf/nginx/prv.conf/*
 *.log
+/conf/mysql/*
+/conf/mysql1/*

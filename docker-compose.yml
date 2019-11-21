@@ -30,24 +30,22 @@ services:
     # links:
     #   - php
     # restart: always
-  # mysql:
-  #   build: ./build/mysql
-  #   ports:
-  #     - "3306:3306"
-  #   # volumes:
-  #     # - //dnmp/conf/mysql.cnf:/etc/mysql/conf.d/mysql.cnf:ro
-  #     # - //dnmp/conf/mysql:/var/lib/mysql/
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: "123456"
-  # phpmyadmin:
-  #   image: phpmyadmin/phpmyadmin
-  #   ports:
-  #     - "8081:80"
-  #   networks:
-  #     - default
-  #   environment:
-  #     - PMA_HOST=mysql
-  #     - PMA_PORT=3306
+  mysql:
+    build: ./build/mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - //d/dnmp/conf/mysql.cnf:/etc/mysql/conf.d/mysql.cnf:ro
+      - //d/dnmp/conf/mysql:/var/lib/mysql/
+    environment:
+      MYSQL_ROOT_PASSWORD: "123456"
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    ports:
+      - "8090:80"
+    environment:
+      - PMA_HOST=mysql
+      - PMA_PORT=3306
   # redis:
   #   image: redis
   #   ports:

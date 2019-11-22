@@ -8,7 +8,8 @@ research docker+nginx+php
 - [ ]  permission problem
 - [ ]  install sendmail
 - [x]  install locale(need optimize)
-- [ ]  mysql redis mysqladmin redisadmin up
+- [x]  mysql mysqladmin up
+- [ ]  redis redisadmin up
 
 
 ## Tips

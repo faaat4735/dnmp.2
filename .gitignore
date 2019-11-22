@@ -1,4 +1,5 @@
-conf/nginx/prv.conf/*
+/conf/nginx/prv.conf/*
 *.log
-conf/mysql/*
-conf/mysql1/*
+/conf/mysql/*
+/conf/mysql1/*
+.env

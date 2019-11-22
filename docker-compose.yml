@@ -6,12 +6,10 @@ services:
     ports:
       - "9000:9000"
     volumes:
-      - /webdir/dnmp/conf/php.ini:/usr/local/etc/php/php.ini
-      - /webdir/dnmp/log/php:/var/log/php
       #workdir
-#      - //d/sites:/sites
-      # - //sites/:/sites
-      # - //e_d/:/webdir
+      - ${SERVICE_DIR}dnmp/conf/php.ini:/usr/local/etc/php/php.ini
+      - ${SERVICE_DIR}dnmp/log/php:/var/log/php
+      - ${WORK_DIR}sites:/sites
     # restart: always
   nginx:
     build: ./build/nginx
@@ -19,14 +17,9 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      #windows
-      - /webdir/dnmp/log/nginx/:/var/log/nginx
-      # - //dnmp/conf/nginx/nginx.conf:/etc/nginx/nginx.conf
-      - /webdir/dnmp/conf/nginx/:/etc/nginx
-      # - ./conf/nginx:/etc/nginx
-#      - //d/sites/:/sites
-      #workdir
-      # - //e_d/:/webdir
+      - ${SERVICE_DIR}dnmp/log/nginx/:/var/log/nginx
+      - ${SERVICE_DIR}dnmp/conf/nginx/:/etc/nginx
+      - ${WORK_DIR}sites/:/sites
     # links:
     #   - php
     # restart: always
@@ -35,8 +28,8 @@ services:
     ports:
       - "3306:3306"
     volumes:
-      - /webdir/dnmp/conf/mysql.cnf:/etc/mysql/conf.d/mysql.cnf:ro
-      - /webdir/dnmp/conf/mysql:/var/lib/mysql/
+      - ${SERVICE_DIR}dnmp/conf/mysql.cnf:/etc/mysql/conf.d/mysql.cnf:ro
+      - ${SERVICE_DIR}dnmp/conf/mysql:/var/lib/mysql/
     environment:
       MYSQL_ROOT_PASSWORD: "123456"
   phpmyadmin:
